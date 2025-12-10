@@ -8,7 +8,7 @@ to say the least.
 
 To add this tap, the third <URL> argument is necessary:
 
-    brew tap rapidcow/fresh https://codeberg.org/rapidcow/fresh.git
+    brew tap rapidcow/fresh https://codeberg.org/rapidcow/homebrew-fresh.git
 
 [1] This is purely speculating from Scott Chacon's Pro Git book,
     which utilizes Ruby to demonstrate zlib compression used in
