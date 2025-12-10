@@ -1,0 +1,16 @@
+This is the "rapidcow/fresh" tap for the Homebrew package manager.
+It will be hosted on Codeberg not GitHub! (because I have too many
+repositories on GitHub; I need some balance...)
+
+I am trying to learn Ruby as well, to see how similar to Perl it is.
+GitHub[1], Homebrew, Mastodon all run on Ruby, so it is interesting
+to say the least.
+
+To add this tap, the third <URL> argument is necessary:
+
+    brew tap rapidcow/fresh https://codeberg.org/rapidcow/fresh.git
+
+[1] This is purely speculating from Scott Chacon's Pro Git book,
+    which utilizes Ruby to demonstrate zlib compression used in
+    Git loose objects:
+    <https://git-scm.com/book/en/v2/Git-Internals-Git-Objects#_object_storage>
