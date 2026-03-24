@@ -12,3 +12,5 @@
 	permission = rwsx
 [shell "com.termux@Pixel-9-Pro.local"]
 	permission = rwsx
+[shell "meng69@INFO-COL-A407.ad.wisc.edu"]
+	permission = rwx
