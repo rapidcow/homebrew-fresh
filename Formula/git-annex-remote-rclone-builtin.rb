@@ -14,7 +14,7 @@ class GitAnnexRemoteRcloneBuiltin < Formula
 
   def install
     (buildpath/"git-annex-remote-rclone-builtin.1").write <<~EOS
-      .TH GIT\\-ANNEX\\-REMOTE\\-RCLONE\\-BUILTIN 1 "2024\\-06\\-14" "rclone #{version}" "User Commands"
+      .TH GIT\\-ANNEX\\-REMOTE\\-RCLONE\\-BUILTIN 1 "2024\\-06\\-14" "rclone #{version} (unofficial)" "User Commands"
       .SH NAME
       git\\-annex\\-remote\\-rclone\\-builtin \\- git\\-annex rclone\\-builtin special remote
       .SH SYNOPSIS
