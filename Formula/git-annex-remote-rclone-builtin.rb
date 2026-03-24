@@ -13,6 +13,31 @@ class GitAnnexRemoteRcloneBuiltin < Formula
   depends_on "rclone"
 
   def install
+    (buildpath/"git-annex-remote-rclone-builtin.1").write <<~EOS
+      .TH GIT\\-ANNEX\\-REMOTE\\-RCLONE\\-BUILTIN 1 "2024\\-06\\-14" "rclone #{version}" "User Commands"
+      .SH NAME
+      git\\-annex\\-remote\\-rclone\\-builtin \\- rclone\\-based git\\-annex external special remote
+      .SH SYNOPSIS
+      .B git\\-annex\\-remote\\-rclone\\-builtin
+      .SH DESCRIPTION
+      .B git\\-annex\\-remote\\-rclone\\-builtin
+      is a symlink to
+      .BR rclone (1).
+      When invoked under this name, rclone acts as a git\\-annex external special remote,
+      implementing the git\\-annex external special remote protocol over standard input
+      and output.
+      .PP
+      This allows git\\-annex to store and retrieve content on any storage backend
+      supported by rclone, without requiring a separate helper script.
+      .PP
+      In normal use this program is invoked by
+      .BR git\\-annex (1)
+      automatically and should not be run directly.
+      .SH SEE ALSO
+      .BR git\\-annex (1),
+      .BR rclone (1)
+    EOS
+    man1.install "git-annex-remote-rclone-builtin.1"
     bin.install_symlink Formula["rclone"].opt_bin/"rclone" => "git-annex-remote-rclone-builtin"
   end
 
