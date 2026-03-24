@@ -119,6 +119,9 @@ class GitAnnexRemoteRcloneBuiltin < Formula
       .UR https://rclone.org/commands/rclone_gitannex/
       rclone gitannex
       .UE
+      .SH HISTORY
+      The \\fBrclone gitannex\\fP subcommand appeared
+      in rclone v1.67.0.
     EOS
     man1.install "git-annex-remote-rclone-builtin.1"
     bin.install_symlink Formula["rclone"].opt_bin/"rclone" => "git-annex-remote-rclone-builtin"
