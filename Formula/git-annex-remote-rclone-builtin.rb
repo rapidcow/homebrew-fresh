@@ -106,6 +106,7 @@ class GitAnnexRemoteRcloneBuiltin < Formula
       .B externaltype=rclone
       Renamed to
       .BR externaltype=rclone\\-builtin .
+      (Duh!)
       .PP
       Note that
       .B git\\-annex\\-remote\\-rclone\\-builtin
