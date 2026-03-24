@@ -16,7 +16,8 @@ class GitAnnexRemoteRcloneBuiltin < Formula
   end
 
   test do
-    assert_equal Formula["rclone"].opt_bin/"rclone",
-                 (bin/"git-annex-remote-rclone-builtin").readlink
+    # Matches protocol version string; e.g., "VERSION 1"
+    assert_match(/\AVERSION \d+\n\z/,
+                 IO.popen([bin/"git-annex-remote-rclone-builtin"], in: File::NULL, &:read))
   end
 end
