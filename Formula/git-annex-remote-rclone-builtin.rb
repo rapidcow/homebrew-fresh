@@ -1,5 +1,5 @@
 class GitAnnexRemoteRcloneBuiltin < Formula
-  desc "The rclone-builtin git-annex special remote"
+  desc "Git-annex rclone-builtin special remote"
   homepage "https://rclone.org/commands/rclone_gitannex/"
   # Pinned to v1.67.0, the release that introduced the gitannex command.
   # No need to update this as the formula just creates a symlink to rclone.
