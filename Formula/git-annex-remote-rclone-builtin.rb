@@ -115,6 +115,10 @@ class GitAnnexRemoteRcloneBuiltin < Formula
       .SH SEE ALSO
       .BR git\\-annex (1),
       .BR rclone (1)
+      .PP
+      .UR https://rclone.org/commands/rclone_gitannex/
+      rclone gitannex
+      .UE
     EOS
     man1.install "git-annex-remote-rclone-builtin.1"
     bin.install_symlink Formula["rclone"].opt_bin/"rclone" => "git-annex-remote-rclone-builtin"
