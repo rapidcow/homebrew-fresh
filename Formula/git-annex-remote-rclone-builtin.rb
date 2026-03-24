@@ -1,5 +1,5 @@
 class GitAnnexRemoteRcloneBuiltin < Formula
-  desc "Symlink enabling rclone to work as a git-annex builtin special remote"
+  desc "the rclone-builtin git-annex special remote"
   homepage "https://rclone.org/commands/rclone_gitannex/"
   # Pinned to v1.67.0, the release that introduced the gitannex command.
   # No need to update this as the formula just creates a symlink to rclone.
@@ -7,6 +7,7 @@ class GitAnnexRemoteRcloneBuiltin < Formula
       using: :nounzip
   version "1.67.0"
   sha256 "cc46285dc2ea60c31e0702ea2347c5473deaa1cb1dd281158dcc841defafe87b"
+  # Same as rclone itself.
   license "MIT"
 
   depends_on "rclone"
