@@ -16,28 +16,30 @@ class GitAnnexRemoteRcloneBuiltin < Formula
     (buildpath/"git-annex-remote-rclone-builtin.1").write <<~EOS
       .TH GIT\\-ANNEX\\-REMOTE\\-RCLONE\\-BUILTIN 1 "2024\\-06\\-14" "rclone #{version}" "User Commands"
       .SH NAME
-      git\\-annex\\-remote\\-rclone\\-builtin \\- rclone\\-based git\\-annex external special remote
+      git\\-annex\\-remote\\-rclone\\-builtin \\- git\\-annex rclone\\-builtin special remote
       .SH SYNOPSIS
-      .B git\\-annex\\-remote\\-rclone\\-builtin
+      .SY git\\-annex\\-remote\\-rclone\\-builtin
+      .YS
+      .SY "rclone gitannex"
+      .YS
       .SH DESCRIPTION
       .B git\\-annex\\-remote\\-rclone\\-builtin
-      is a symlink to
+      is a symbolic link to
       .BR rclone (1).
       When invoked under this name, rclone implements the git\\-annex external
       special remote protocol over standard input and output, allowing
       .BR git\\-annex (1)
       to store and retrieve content on any rclone\\-supported backend.
       .PP
-      git\\-annex 10.20240430 and later can invoke rclone directly using
-      .BR type=rclone ,
-      without needing this symlink.
-      Older versions require
+      Since version 10.20240430,
+      .BR git\\-annex (1)
+      understands how to invoke
+      .BR rclone (1)
+      directly using
+      .BR type=rclone ;
+      older versions require
       .B type=external externaltype=rclone\\-builtin
-      and the symlink on
-      .BR $PATH .
-      .PP
-      In normal use this program is invoked by git\\-annex automatically
-      and should not be run directly.
+      and the symbolic link provided by this package.
       .SH CONFIGURATION
       Parameters are supplied to
       .B git annex initremote
@@ -76,7 +78,7 @@ class GitAnnexRemoteRcloneBuiltin < Formula
       .fi
       .RE
       .PP
-      Create a remote using an older git\\-annex (requires this symlink):
+      Create a remote using the special remote for older versions:
       .PP
       .RS
       .nf
@@ -85,10 +87,9 @@ class GitAnnexRemoteRcloneBuiltin < Formula
           rcloneprefix=git\\-annex\\-content rclonelayout=lower
       .fi
       .RE
-      .SH DIFFERENCES FROM git-annex-remote-rclone
-      The original
-      .I git\\-annex\\-remote\\-rclone
-      shell script uses different parameter names:
+      .SH COMPATIBILITY
+      The \\fBrclone\\fP special remote is \\fInot\\fP compatible
+      with this remote.  Namely, the parameter names differ:
       .TP
       .B target
       Renamed to
