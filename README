@@ -20,6 +20,9 @@ To add this tap, the third <URL> argument is often necessary:
     brew tap rapidcow/fresh \
           https://git.rapidcow.org/pub/package/homebrew/fresh.git
                                # ... or me? :p
+    brew tap rapidcow/fresh \
+          https://gitee.com/rapidcow/homebrew-fresh.git
+                               # a third option for chinese folks
 
 To remove it (or to re-add it later with a different URL):
 
