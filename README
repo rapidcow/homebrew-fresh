@@ -25,6 +25,17 @@ To remove it (or to re-add it later with a different URL):
 
     brew untap rapidcow/fresh
 
+Actually, if all you're doing is swapping out a URL,
+do just that instead!
+
+    git -C $(brew --prefix)/Library/Taps/rapidcow/homebrew-fresh \
+          remote origin set-url <whatever> &&
+    brew update
+
+(The default URL would be "https://github.com/rapidcow/homebrew-fresh",
+by the way; I was able to find that out by by running "get-url"
+instead of get-url" instead of "set-url".)
+
 [1] This is purely speculating from Scott Chacon's Pro Git book,
     which utilizes Ruby to demonstrate zlib compression used in
     Git loose objects:
