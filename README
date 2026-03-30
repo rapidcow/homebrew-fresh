@@ -10,14 +10,20 @@ I am trying to learn Ruby as well, to see how similar to Perl it is.
 GitHub[1], Homebrew, Mastodon all run on Ruby, so it is interesting
 to say the least.
 
-To add this tap, the third <URL> argument is necessary:
+To add this tap, the third <URL> argument is often necessary:
 
     brew tap rapidcow/fresh    # Embrace GitHub
-    brew tap rapidcow/fresh https://codeberg.org/rapidcow/homebrew-fresh.git
+    brew tap rapidcow/fresh \
+          https://codeberg.org/rapidcow/homebrew-fresh.git
                                # Pray that Codeberg doesn't boot me
                                # for including AI-generated code
-    brew tap rapidcow/fresh https://git.rapidcow.org/pub/package/homebrew/fresh.git
+    brew tap rapidcow/fresh \
+          https://git.rapidcow.org/pub/package/homebrew/fresh.git
                                # ... or me? :p
+
+To remove it (or to re-add it later with a different URL):
+
+    brew untap rapidcow/fresh
 
 [1] This is purely speculating from Scott Chacon's Pro Git book,
     which utilizes Ruby to demonstrate zlib compression used in
