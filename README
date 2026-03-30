@@ -1,6 +1,10 @@
 This is the "rapidcow/fresh" tap for the Homebrew package manager.
-It will be hosted on Codeberg not GitHub! (because I have too many
-repositories on GitHub; I need some balance...)
+This was going on Codeberg, but because stuff is partially written
+by Claude [*] (solely to fight my procrastiation & perfectionism,
+and not a reflection of... y'know... my endorsement of the "hype"
+around all this), I am hosting it myself, mirroring it on GitHub
+secondly, and probably delete it from Codeberg to keep my account
+AI-clean there...
 
 I am trying to learn Ruby as well, to see how similar to Perl it is.
 GitHub[1], Homebrew, Mastodon all run on Ruby, so it is interesting
@@ -8,9 +12,25 @@ to say the least.
 
 To add this tap, the third <URL> argument is necessary:
 
+    brew tap rapidcow/fresh    # Embrace GitHub
     brew tap rapidcow/fresh https://codeberg.org/rapidcow/homebrew-fresh.git
+                               # Pray that Codeberg doesn't boot me
+                               # for including AI-generated code
+    brew tap rapidcow/fresh https://git.rapidcow.org/pub/package/homebrew/fresh.git
+                               # ... or me? :p
 
 [1] This is purely speculating from Scott Chacon's Pro Git book,
     which utilizes Ruby to demonstrate zlib compression used in
     Git loose objects:
     <https://git-scm.com/book/en/v2/Git-Internals-Git-Objects#_object_storage>
+
+[*] Anything authored by AI has explicit attribution, by the way.
+Generally the way Claude Code works is append the Co-Authored-By
+header, and still have git log, git blame, etc. show my name.
+I don't do that, because it messes with my brain if I see myself
+authoring more code than I should be capable of writing!  Instead
+I give Claude the full "author"-ship and I as the committer, so
+I'd still know who to "blame" for anything off-putting.  None of
+this is because of standards-conformity or transparency... I'm
+doing this for *myself* primarily and I just thought it might be
+worth saying.
