@@ -18,7 +18,7 @@ To add this tap, the third <URL> argument is often necessary:
                                # Pray that Codeberg doesn't boot me
                                # for including AI-generated code
     brew tap rapidcow/fresh \
-          https://git.rapidcow.org/pub/package/homebrew/fresh.git
+          https://git.rapidcow.org/our/package/homebrew.git
                                # ... or me? :p
     brew tap rapidcow/fresh \
           https://gitee.com/rapidcow/homebrew-fresh.git
