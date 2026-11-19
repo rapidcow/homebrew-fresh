@@ -3,7 +3,7 @@ require_relative "../lib/git_subtree_download_strategy"
 class SiteconfL10n < Formula
   desc "Perl locale directory configuration for siteconf"
   homepage "https://foss.rapidcow.org/project/siteconf/"
-  url "https://git.rapidcow.org/pub/project/siteconf.git",
+  url "https://github.com/rapidcow/siteconf.git",
       using:   GitSubtreeDownloadStrategy,
       tag:     "siteconf-l10n/v0.00_00",
       subtree: "siteconf-l10n"

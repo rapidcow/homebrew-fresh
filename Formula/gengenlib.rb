@@ -3,7 +3,7 @@ require_relative "../lib/git_subtree_download_strategy"
 class Gengenlib < Formula
   desc "Perl generation utilities and Template Toolkit dependency provider"
   homepage "https://foss.rapidcow.org/project/siteconf/"
-  url "https://git.rapidcow.org/pub/project/siteconf.git",
+  url "https://github.com/rapidcow/siteconf.git",
       using:   GitSubtreeDownloadStrategy,
       tag:     "gengenlib/v0.01_00",
       subtree: "gengenlib"
@@ -26,7 +26,7 @@ class Gengenlib < Formula
   end
 
   resource "template-provider" do
-    url "https://git.rapidcow.org/pub/project/siteconf.git",
+    url "https://github.com/rapidcow/siteconf.git",
         using:   GitSubtreeDownloadStrategy,
         tag:     "template-provider/v0.00_00",
         subtree: "template-provider"

@@ -3,7 +3,7 @@ require_relative "../lib/git_subtree_download_strategy"
 class Textdomain < Formula
   desc "Perl UTF-8 gettext text domains"
   homepage "https://foss.rapidcow.org/project/siteconf/"
-  url "https://git.rapidcow.org/pub/project/siteconf.git",
+  url "https://github.com/rapidcow/siteconf.git",
       using:   GitSubtreeDownloadStrategy,
       tag:     "textdomain/v0.00_00",
       subtree: "textdomain"

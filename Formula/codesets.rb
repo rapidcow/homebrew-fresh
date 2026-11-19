@@ -3,7 +3,7 @@ require_relative "../lib/git_subtree_download_strategy"
 class Codesets < Formula
   desc "Perl character encoding contexts and argument parsing"
   homepage "https://foss.rapidcow.org/project/siteconf/"
-  url "https://git.rapidcow.org/pub/project/siteconf.git",
+  url "https://github.com/rapidcow/siteconf.git",
       using:   GitSubtreeDownloadStrategy,
       tag:     "codesets/v0.00_00",
       subtree: "codesets"
