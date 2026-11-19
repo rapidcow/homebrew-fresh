@@ -31,7 +31,7 @@ class GitSubtreeDownloadStrategy < AbstractFileDownloadStrategy
           system_command! "git",
                           args:    ["-C", repo, "-c", "tar.umask=0002",
                                     "-c", "tar.tar.gz.command=git archive gzip",
-                                    "archive", "--format=tar.gz", "--mtime=1970-01-01T00:00:00Z",
+                                    "archive", "--format=tar.gz", "--mtime=@0",
                                     "--output=#{temporary_path}",
                                     "refs/tags/package:#{meta.fetch(:subtree)}"],
                           timeout: timeout

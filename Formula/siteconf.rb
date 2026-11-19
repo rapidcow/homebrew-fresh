@@ -57,9 +57,8 @@ class Siteconf < Formula
 
   test do
     (testpath/"html/index.html").write <<~HTML
-      [% # HAVE: ${A}/${a}/index.html
-      -%]
-      Hello [% O.site_url %]
+      [% # HAVE: ${a}/index.html: -%]
+      Hello [% locate('//') %]
     HTML
     (testpath/"Makefile.in").write <<~MAKE
       index.html: ${A}/render
@@ -72,6 +71,6 @@ class Siteconf < Formula
     system "./configure"
     system bin/"siteconf", "-g"
     system "make"
-    assert_equal "Hello https://example.org\n", (testpath/"site/index.html").read
+    assert_equal "Hello https://example.org/\n", (testpath/"site/index.html").read
   end
 end
