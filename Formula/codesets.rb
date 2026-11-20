@@ -8,7 +8,7 @@ class Codesets < Formula
       tag:     "codesets/v0.00_00",
       subtree: "codesets"
   version "0.00.00"
-  sha256 "f59676ae8dca934107fcd1e48de016301b138f0480850659c224651ae672fa59"
+  sha256 "e1459599da77413f51debd54866745ffb607d237607696d7430abae9a7bc7159"
   license "GPL-3.0-only"
 
   depends_on "perl"

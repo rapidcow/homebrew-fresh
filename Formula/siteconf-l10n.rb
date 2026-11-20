@@ -8,7 +8,7 @@ class SiteconfL10n < Formula
       tag:     "siteconf-l10n/v0.00_00",
       subtree: "siteconf-l10n"
   version "0.00.00"
-  sha256 "37db2a4beb164004179e98ca404d28792882ef01476e17934d5b838505c119d0"
+  sha256 "b87174294c97b75a424a3b6f1cbc6045db5a8a45328dc26970e370fbe7e009b4"
   license "GPL-3.0-only"
 
   depends_on "perl"

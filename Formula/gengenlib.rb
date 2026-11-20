@@ -8,7 +8,7 @@ class Gengenlib < Formula
       tag:     "gengenlib/v0.01_00",
       subtree: "gengenlib"
   version "0.01.00"
-  sha256 "475222c3b9e392ec1fbbcb48f65cfdfbd14001e820b1b30c47badff220b406b2"
+  sha256 "53addfadfad2a9a4412f583fc2202adc049e167a8b9569056a0a3b5a9ae7e58c"
   license "GPL-3.0-only"
 
   depends_on "perl"
@@ -31,7 +31,7 @@ class Gengenlib < Formula
         tag:     "template-provider/v0.00_00",
         subtree: "template-provider"
     version "0.00.00"
-    sha256 "28e556d8a7cb0e0e4ffb76e75299da3ca94e0c19dcb7e69624de024f569bcd36"
+    sha256 "3631d13ba6361200906269be295f209c22ac23c5f03ed1c445d85520fa551b60"
   end
 
   def install

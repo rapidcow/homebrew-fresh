@@ -5,11 +5,11 @@ require "download_strategy"
 require "tmpdir"
 
 # Fetch a movable package tag, then let Homebrew verify the subtree archive's
-# SHA-256. Commit IDs and commit timestamps are deliberately absent from it.
+# SHA-256. Entries use the tagged commit's strict ISO author date (%aI).
 class GitSubtreeDownloadStrategy < AbstractFileDownloadStrategy
   sig { override.returns(Pathname) }
   def cached_location
-    identity = [url, meta.fetch(:tag), meta.fetch(:subtree)].join("\n")
+    identity = ["author-date-v1", url, meta.fetch(:tag), meta.fetch(:subtree)].join("\n")
     key = Digest::SHA256.hexdigest(identity)
     cache/"downloads/#{key}--#{name}-#{version}.tar.gz"
   end
@@ -28,10 +28,14 @@ class GitSubtreeDownloadStrategy < AbstractFileDownloadStrategy
                           args:    ["-C", repo, "fetch", "--no-tags", url,
                                     "refs/tags/#{meta.fetch(:tag)}:refs/tags/package"],
                           timeout: timeout
+          author_date = system_command!("git",
+                                        args:    ["-C", repo, "show", "-s", "--format=%aI",
+                                                  "refs/tags/package^{commit}"],
+                                        timeout: timeout).stdout.strip
           system_command! "git",
                           args:    ["-C", repo, "-c", "tar.umask=0002",
                                     "-c", "tar.tar.gz.command=git archive gzip",
-                                    "archive", "--format=tar.gz", "--mtime=@0",
+                                    "archive", "--format=tar.gz", "--mtime=#{author_date}",
                                     "--output=#{temporary_path}",
                                     "refs/tags/package:#{meta.fetch(:subtree)}"],
                           timeout: timeout
