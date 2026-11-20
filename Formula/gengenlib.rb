@@ -31,7 +31,7 @@ class Gengenlib < Formula
         tag:     "template-provider/v0.00_00",
         subtree: "template-provider"
     version "0.00.00"
-    sha256 "9181c2fe5677c0ad6fe98bda19234e545c32f5b1aad97995adc99ff8acaa88f0"
+    sha256 "da0ad853dd1c3ce93c02a799862280a38452b8a42e4b8327a614674878d20605"
   end
 
   def install
