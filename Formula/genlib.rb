@@ -8,7 +8,7 @@ class Genlib < Formula
       tag:     "genlib/v0.03_00",
       subtree: "genlib"
   version "0.03.00"
-  sha256 "3f00551e4ca7090a29a787731241cc944029be5200f436ec8c8fe541c87b7d80"
+  sha256 "2d7d6600a1112c579c406708d06775eaac9046e63b1b909334705578d29504fe"
   license "GPL-3.0-only"
 
   depends_on "perl"

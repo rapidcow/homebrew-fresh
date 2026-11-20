@@ -8,7 +8,7 @@ class Textdomain < Formula
       tag:     "textdomain/v0.00_00",
       subtree: "textdomain"
   version "0.00.00"
-  sha256 "e44c92af689b2fe15008ac789fff42f428a80da02f9b6d39fbf3a3753240fc16"
+  sha256 "f81aee21141fb99cf3c9154658d92c7a8e69e78e9352bb81fc9f7e828a52b9ca"
   license "GPL-3.0-only"
 
   depends_on "gettext"

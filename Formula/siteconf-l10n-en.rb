@@ -8,7 +8,7 @@ class SiteconfL10nEn < Formula
       tag:     "siteconf-l10n/v0.00_00",
       subtree: "siteconf-l10n"
   version "0.00.00"
-  sha256 "b87174294c97b75a424a3b6f1cbc6045db5a8a45328dc26970e370fbe7e009b4"
+  sha256 "de81c9d73b8d5146da800df7472b13748c288055de07b7536b3cd287016f4b9f"
   license "GPL-3.0-only"
 
   depends_on "gettext" => [:build, :test]

@@ -8,7 +8,7 @@ class Siteconf < Formula
       tag:     "siteconf/v0.03_00",
       subtree: "siteconf"
   version "0.03.00"
-  sha256 "aca03f9e03b15371d3de2793a753a8e3a27f21fb7168e1ba825f23a8201ec728"
+  sha256 "1519f650027706ca731c89faa2641a76706e5615613cc578c18b240244d15225"
   license "GPL-3.0-only"
 
   depends_on "perl"
