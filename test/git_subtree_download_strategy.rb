@@ -4,7 +4,6 @@
 # Run with: brew ruby test/git_subtree_download_strategy.rb
 require "resource"
 require "rubygems/package"
-require "time"
 require "zlib"
 require_relative "../lib/git_subtree_download_strategy"
 
@@ -22,7 +21,9 @@ Dir.mktmpdir("git-subtree-test-") do |directory|
   git.call(repo, "config", "user.email", "archive@example.invalid")
   (repo/"package").mkpath
   (repo/"package/source.txt").write("original\n")
+  (repo/"package/ignored.txt").write("ignored\n")
   (repo/"unrelated.txt").write("first\n")
+  (repo/".gitattributes").write(".gitattributes export-ignore\npackage/ignored.txt export-ignore\n")
   git.call(repo, "add", ".")
   git.call(repo, "commit", "--quiet", "-m", "initial")
   git.call(repo, "tag", "-a", "package/v1", "-m", "package release")
@@ -33,18 +34,21 @@ Dir.mktmpdir("git-subtree-test-") do |directory|
   resource.version "1"
   resource.downloader.fetch
   archive = resource.cached_download
-  expected_mtime = Time.iso8601(dates.fetch("GIT_AUTHOR_DATE")).to_i
+  names = []
   Zlib::GzipReader.open(archive) do |gzip|
     Gem::Package::TarReader.new(gzip) do |tar|
       tar.each do |entry|
-        raise "entry does not use author date" if entry.header.mtime != expected_mtime
+        raise "entry does not use epoch mtime" if entry.header.mtime != 0
+
+        names << entry.full_name.delete_suffix("/")
       end
     end
   end
+  raise "unexpected entries: #{names.inspect}" if names.sort != ["package", "package/source.txt"]
   resource.sha256 Digest::SHA256.file(archive).hexdigest
   resource.verify_download_integrity(archive)
 
-  # A new commit and committer date preserve the hash when the author date and subtree stay the same.
+  # A new commit and committer date preserve the hash when the subtree stays the same.
   (repo/"unrelated.txt").write("second\n")
   dates["GIT_COMMITTER_DATE"] = "2003-04-05T06:07:08Z"
   git.call(repo, "add", ".")
@@ -65,18 +69,19 @@ Dir.mktmpdir("git-subtree-test-") do |directory|
     raise "changed archive passed checksum verification"
   end
 
-  # The author date is part of the archive even when package content is unchanged.
+  # The author date is not part of the archive.
   dates["GIT_AUTHOR_DATE"] = "2004-05-06T07:08:09Z"
   git.call(repo, "commit", "--quiet", "--allow-empty", "-m", "author date change")
   git.call(repo, "tag", "--force", "package/v1")
-  reject_changed_archive.call
-  resource.sha256 Digest::SHA256.file(resource.cached_download).hexdigest
+  resource.downloader.clear_cache
+  resource.downloader.fetch
+  resource.verify_download_integrity(resource.cached_download)
 
-  # Changed package content must also fail verification when its author date stays the same.
+  # Changed package content must fail verification.
   (repo/"package/source.txt").write("changed\n")
   git.call(repo, "add", ".")
   git.call(repo, "commit", "--quiet", "-m", "package change")
   git.call(repo, "tag", "--force", "package/v1")
   reject_changed_archive.call
-  puts "PASS: archives use the author date; changed author dates or package content fail SHA-256"
+  puts "PASS: archives use the epoch mtime and honor export-ignore; changed package content fails SHA-256"
 end
